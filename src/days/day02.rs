@@ -1,7 +1,9 @@
+use crate::days::Problem;
+
 pub struct Day02 {}
 
-impl Day02 {
-    pub fn part_one(input: &str) -> String {
+impl Problem for Day02 {
+    fn part_one(&self, input: &str) -> String {
         let mut score = 0;
         for line in input.split("\n").collect::<Vec<&str>>().iter() {
             if !line.is_empty() {
@@ -12,7 +14,7 @@ impl Day02 {
         score.to_string()
     }
 
-    pub fn part_two(input: &str) -> String {
+    fn part_two(&self, input: &str) -> String {
         let mut score = 0;
         for line in input.split("\n").collect::<Vec<&str>>().iter() {
             if !line.is_empty() {
@@ -127,9 +129,6 @@ enum Winner {
 }
 
 struct Round {
-    opponent_move: Move,
-    your_move: Move,
-    winner: Winner,
     round_score: u32,
 }
 
@@ -171,9 +170,6 @@ impl Round {
         }
 
         Self {
-            opponent_move: opponent_move,
-            your_move: your_move,
-            winner: winner,
             round_score: total_score,
         }
     }
@@ -231,7 +227,7 @@ mod tests {
     fn test_part_one() {
         assert_eq!(
             "15",
-            Day02::part_one(&util::input(2, util::InputType::Example))
+            Day02 {}.part_one(&util::input(2, util::InputType::Example))
         )
     }
 
@@ -239,7 +235,7 @@ mod tests {
     fn test_part_two() {
         assert_eq!(
             "12",
-            Day02::part_two(&util::input(2, util::InputType::Example))
+            Day02 {}.part_two(&util::input(2, util::InputType::Example))
         )
     }
 }

@@ -1,10 +1,12 @@
 use std::cmp;
 use std::collections::BinaryHeap;
 
+use crate::days::Problem;
+
 pub struct Day01 {}
 
-impl Day01 {
-    pub fn part_one(input: &str) -> String {
+impl Problem for Day01 {
+    fn part_one(&self, input: &str) -> String {
         let content: Vec<&str> = input.split("\n").collect();
 
         let mut max_calories: u32 = 0;
@@ -21,7 +23,7 @@ impl Day01 {
         max_calories.to_string()
     }
 
-    pub fn part_two(input: &str) -> String {
+    fn part_two(&self, input: &str) -> String {
         let content: Vec<&str> = input.split("\n").collect();
 
         let mut priority_queue = BinaryHeap::new();
@@ -52,7 +54,7 @@ mod tests {
     fn test_part_one() {
         assert_eq!(
             "24000",
-            Day01::part_one(&util::input(1, util::InputType::Example))
+            Day01 {}.part_one(&util::input(1, util::InputType::Example))
         )
     }
 
@@ -60,7 +62,7 @@ mod tests {
     fn test_part_two() {
         assert_eq!(
             "45000",
-            Day01::part_two(&util::input(1, util::InputType::Example))
+            Day01 {}.part_two(&util::input(1, util::InputType::Example))
         )
     }
 }
