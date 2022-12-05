@@ -5,6 +5,7 @@ use days::day01::Day01;
 use days::day02::Day02;
 use days::day03::Day03;
 use days::day04::Day04;
+use days::day05::Day05;
 use days::Problem;
 
 use std::time::Instant;
@@ -21,6 +22,7 @@ fn run_day(day: &str) {
         "2" => run(Box::new(Day02 {}), 2),
         "3" => run(Box::new(Day03 {}), 3),
         "4" => run(Box::new(Day04 {}), 4),
+        "5" => run(Box::new(Day05 {}), 5),
         _ => panic!("day {} not implemented", day),
     }
 }
